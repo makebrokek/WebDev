@@ -48,3 +48,15 @@ function addTodoItem(text) {
 
     todoList.appendChild(listItem);
 }
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Delete') {
+        const checkedItems = document.querySelectorAll('.todo-item input[type="checkbox"]:checked');
+        checkedItems.forEach(function (checkbox) {
+            const listItem = checkbox.closest('li');
+            if (listItem) {
+                todoList.removeChild(listItem);
+            }
+        });
+    }
+});

@@ -1,12 +1,29 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductService } from './services/product.service';
+import { Category } from './models/category.model';
+import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, ProductListComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
 })
 export class App {
-  protected readonly title = signal('online-store');
+  categories: Category[] = [];
+  selectedCategoryId: number | null = null;
+  selectedProducts: Product[] = [];
+
+  constructor(private productService: ProductService) {
+    this.categories = this.productService.getCategories();
+  }
+
+  selectCategory(categoryId: number) {
+    this.selectedCategoryId = categoryId;
+    this.selectedProducts = this.productService.getProductsByCategory(categoryId);
+  }
 }
