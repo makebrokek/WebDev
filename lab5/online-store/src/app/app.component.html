@@ -1,0 +1,20 @@
+<h1>Online Store</h1>
+
+<div class="categories">
+  <button
+    *ngFor="let c of categories"
+    type="button"
+    (click)="selectCategory(c.id)"
+    [class.active]="c.id === selectedCategoryId">
+    {{ c.name }}
+  </button>
+</div>
+
+<p class="hint" *ngIf="!selectedCategoryId">
+  Select a category to view products
+</p>
+
+<app-product-list
+  *ngIf="selectedCategoryId"
+  [products]="selectedProducts">
+</app-product-list>

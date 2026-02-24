@@ -1,0 +1,353 @@
+import { Injectable } from '@angular/core';
+import { Category } from '../models/category.model';
+import { Product } from '../models/product.model';
+
+@Injectable({ providedIn: 'root' })
+export class ProductService {
+  private categories: Category[] = [
+    { id: 1, name: 'Smartphones' },
+    { id: 2, name: 'Laptops' },
+    { id: 3, name: 'Headphones' },
+    { id: 4, name: 'Tablets' },
+  ];
+
+  private products: Product[] = [
+    // ===== Smartphones (5) =====
+    {
+      id: 1,
+      name: 'Apple iPhone 14',
+      description: 'Latest iPhone with amazing camera and speed.',
+      price: 500000,
+      rating: 4.8,
+      image: 'https://cdn.new-brz.net/app/public/models/MPVX3SX-A/large/w/221108170033071455.webp',
+      images: [
+        'https://cdn.new-brz.net/app/public/models/MPVX3SX-A/large/w/221108170033071455.webp',
+        'https://cdn.new-brz.net/app/public/models/MPVX3SX-A/large/w/221108170033146316.webp',
+        'https://cdn.new-brz.net/app/public/models/MPVX3SX-A/large/w/221108170033216318.webp',
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-iphone-14-128gb-chernyi-106363023/',
+      likes: 0,
+      categoryId: 1,
+    },
+    {
+      id: 2,
+      name: 'Samsung Galaxy S23',
+      description: 'Powerful Android phone with stunning display.',
+      price: 420000,
+      rating: 4.6,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h1d/hd4/69065015853086.jpg?format=preview-large',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h1d/hd4/69065015853086.jpg?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/h1d/hd4/69065015853087.jpg?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/h1d/hd4/69065015853088.jpg?format=preview-large',
+      ],
+      link: 'https://kaspi.kz/shop/p/samsung-galaxy-s23-5g-8-gb-256-gb-sirenevyi-108915896/',
+      likes: 0,
+      categoryId: 1,
+    },
+    {
+      id: 3,
+      name: 'Xiaomi Redmi Note 14 Pro',
+      description: 'Affordable smartphone with great battery life.',
+      price: 95000,
+      rating: 4.4,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/pe3/p87/67214848.png?format=preview-large',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/pe3/p87/67214848.png?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/pe3/p87/67214849.png?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/pe3/p87/67214850.png?format=preview-large',
+      ],
+      link: 'https://kaspi.kz/shop/p/xiaomi-redmi-note-14-pro-12-gb-512-gb-chernyi-134217937/',
+      likes: 0,
+      categoryId: 1,
+    },
+    {
+      id: 11,
+      name: 'Apple iPhone 17 Pro 256GB (Orange)',
+      description: 'Flagship iPhone with futuristic design. Replace description/price/rating/image if needed.',
+      price: 0,
+      rating: 0,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p18/p96/64168413.png?format=gallery-medium',
+      images: [
+        'assets/images/placeholder-phone.jpg',
+        'assets/images/placeholder-phone.jpg',
+        'assets/images/placeholder-phone.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-iphone-17-pro-256gb-oranzhevyi-145467625/',
+      likes: 0,
+      categoryId: 1,
+    },
+    {
+      id: 12,
+      name: 'Samsung Galaxy A07 6/128 ',
+      description: 'Budget Samsung phone with large display. Replace description/price/rating/image if needed.',
+      price: 0,
+      rating: 0,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p3d/pda/61291251.jpg?format=gallery-medium',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/p3d/pda/61291251.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p3d/pda/61291252.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p3d/pda/61291253.jpg?format=gallery-medium',
+      ],
+      link: 'https://kaspi.kz/shop/p/samsung-galaxy-a07-6-gb-128-gb-chernyi-144817763/',
+      likes: 0,
+      categoryId: 1,
+    },
+
+    // ===== Laptops (5) =====
+    {
+      id: 9,
+      name: 'HP Envy 13 Laptop',
+      description: 'Slim and lightweight laptop for productivity.',
+      price: 280000,
+      rating: 4.5,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h10/h18/84480362872862.jpg?format=gallery-medium',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h10/h18/84480362872862.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/h10/h18/84480362872863.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/h10/h18/84480362872864.jpg?format=gallery-medium',
+      ],
+      link: 'https://kaspi.kz/shop/p/hp-envy-x360-13-3-16-gb-ssd-512-gb-win-11-13-bf0026ci-809p4ea-114483216/',
+      likes: 0,
+      categoryId: 2,
+    },
+    {
+      id: 13,
+      name: 'Hydra Home H20 15.6 12/512 Win11',
+      description: 'Laptop with great performance for work and play.',
+      price: 135000,
+      rating: 4.2,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/pcf/p46/69607281.jpg?format=gallery-medium',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/pcf/p46/69607281.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/pcf/p46/69607282.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/pcf/p46/69607283.jpg?format=gallery-medium',
+      ],
+      link: 'https://kaspi.kz/shop/p/hydra-home-h20-15-6-12-gb-ssd-512-gb-win-11-mkii-115019992/',
+      likes: 0,
+      categoryId: 2,
+    },
+    {
+      id: 14,
+      name: 'Lenovo IdeaPad 3 15.6 8/256 DOS',
+      description: 'Sturdy laptop for everyday use',
+      price: 120000,
+      rating: 4.0,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h6f/hba/64231854538782.jpg?format=gallery-medium',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h6f/hba/64231854538782.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/h6f/hba/64231854538783.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/h6f/hba/64231854538784.jpg?format=gallery-medium',
+      ],
+      link: 'https://kaspi.kz/shop/p/lenovo-ideapad-3-15-6-8-gb-ssd-256-gb-dos-15igl05-81wq00errk-102715483/',
+      likes: 0,
+      categoryId: 2,
+    },
+    {
+      id: 15,
+      name: 'Acer Aspire 3 15.6 8/256 Win11 Pro',
+      description: 'Laptop from Kaspi link. Replace details if needed.',
+      price: 145000,
+      rating: 4.3,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100209.jpeg?format=gallery-medium',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100209.jpeg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100210.jpeg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p24/pae/30100211.jpeg?format=gallery-medium',
+      ],
+      link: 'https://kaspi.kz/shop/p/acer-aspire-3-15-6-8-gb-ssd-256-gb-win-11-pro-a325-45-zn-n01si-03k--136300221/',
+      likes: 0,
+      categoryId: 2,
+    },
+    {
+      id: 16,
+      name: 'MacBook Air 13',
+      description: 'Absolutely silent laptop with M2 chip and long battery life.',
+      price: 750000,
+      rating: 4.9,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p3c/p38/16711028.jpg?format=gallery-medium',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/p3c/p38/16711028.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p3c/p38/16711029.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/p3c/p38/16711030.jpg?format=gallery-medium',
+      ],
+      link: 'REPLACE_WITH_REAL_KASPI_LINK',
+      likes: 0,
+      categoryId: 2,
+    },
+
+    // ===== Headphones (5) =====
+    {
+      id: 6,
+      name: 'Sony WH-1000XM5',
+      description: 'Noise-canceling wireless headphones with great sound.',
+      price: 140000,
+      rating: 4.8,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/h22/h56/64476310306846.jpg?format=preview-large',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/h22/h56/64476310306846.jpg?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/h22/h56/64476310306847.jpg?format=gallery-medium',
+        'https://resources.cdn-kaspi.kz/img/m/p/h22/h56/64476310306848.jpg?format=gallery-medium',
+      ],
+      link: 'https://kaspi.kz/shop/p/naushniki-sony-wh-1000xm5-serebristyi-105577599/',
+      likes: 0,
+      categoryId: 3,
+    },
+    {
+      id: 17,
+      name: 'Apple AirPods 4 (White)',
+      description: 'Headphones from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-headphones.jpg',
+      images: [
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/naushniki-apple-airpods-4-belyi-124333372/',
+      likes: 0,
+      categoryId: 3,
+    },
+    {
+      id: 18,
+      name: 'Xiaomi Redmi Buds 6 Play (Black)',
+      description: 'Headphones from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-headphones.jpg',
+      images: [
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/naushniki-xiaomi-redmi-buds-6-play-chernyi-123229678/',
+      likes: 0,
+      categoryId: 3,
+    },
+    {
+      id: 19,
+      name: 'Apple EarPods USB-C (White)',
+      description: 'Headphones from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-headphones.jpg',
+      images: [
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/naushniki-apple-earpods-usb-c-belyi-114086432/',
+      likes: 0,
+      categoryId: 3,
+    },
+    {
+      id: 20,
+      name: 'Air Pro 2 (White)',
+      description: 'Headphones from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-headphones.jpg',
+      images: [
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+        'assets/images/placeholder-headphones.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/naushniki-air-pro-2-belyi-118366664/',
+      likes: 0,
+      categoryId: 3,
+    },
+
+    // ===== Tablets (5) =====
+    {
+      id: 7,
+      name: 'Apple iPad Air 5',
+      description: 'Tablet with powerful A15 chip and lightweight design.',
+      price: 280000,
+      rating: 4.7,
+      image: 'https://resources.cdn-kaspi.kz/img/m/p/p23/pc7/37134129.png?format=preview-large',
+      images: [
+        'https://resources.cdn-kaspi.kz/img/m/p/p23/pc7/37134129.png?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/p23/pc7/37134130.png?format=preview-large',
+        'https://resources.cdn-kaspi.kz/img/m/p/p23/pc7/37134131.png?format=preview-large',
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-ipad-air-11-2025-wi-fi-11-djuim-8-gb-128-gb-seryi-137965083/',
+      likes: 0,
+      categoryId: 4,
+    },
+    {
+      id: 21,
+      name: 'Apple iPad A16 11 (Silver)',
+      description: 'Tablet from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-tablet.jpg',
+      images: [
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-ipad-a16-11-2025-wi-fi-11-djuim-6-gb-128-gb-serebristyi-138199634/',
+      likes: 0,
+      categoryId: 4,
+    },
+    {
+      id: 22,
+      name: 'Apple iPad A16 11 (Blue)',
+      description: 'Tablet from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-tablet.jpg',
+      images: [
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-ipad-a16-11-2025-wi-fi-11-djuim-6-gb-128-gb-sinii-138202165/',
+      likes: 0,
+      categoryId: 4,
+    },
+    {
+      id: 23,
+      name: 'Apple iPad A16 11 (Pink)',
+      description: 'Tablet from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-tablet.jpg',
+      images: [
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/apple-ipad-a16-11-2025-wi-fi-11-djuim-6-gb-128-gb-rozovyi-138199640/',
+      likes: 0,
+      categoryId: 4,
+    },
+    {
+      id: 24,
+      name: 'Xiaomi Redmi Pad 2 4G 11 8/256 (Gray)',
+      description: 'Tablet from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-tablet.jpg',
+      images: [
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/xiaomi-redmi-pad-2-4g-11-djuim-8-gb-256-gb-seryi-140640417/',
+      likes: 0,
+      categoryId: 4,
+    },
+  ];
+
+  getCategories(): Category[] {
+    return this.categories;
+  }
+
+getProductsByCategory(categoryId: number): Product[] {
+  return this.products
+    .filter(p => p.categoryId === categoryId)
+    .map(p => ({ ...p, images: [...p.images] }));
+}
+}
