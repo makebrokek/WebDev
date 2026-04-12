@@ -1,0 +1,34 @@
+.album-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.album-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.album-card:hover {
+  background: #f7f7f7;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.loading,
+.error,
+.empty {
+  margin-top: 20px;
+}

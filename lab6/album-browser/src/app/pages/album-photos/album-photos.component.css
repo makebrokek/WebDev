@@ -1,0 +1,34 @@
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.photo-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  background: white;
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.photo-card p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.back-btn {
+  margin-top: 20px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+}

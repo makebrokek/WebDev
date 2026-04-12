@@ -14,7 +14,7 @@ export class ProductItemComponent {
   @Output() delete = new EventEmitter<number>();
 
   like() {
-    this.product.likes++;
+    this.product.likes += 3;
   }
 
   remove() {

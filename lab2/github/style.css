@@ -249,17 +249,3 @@ details[open] summary::before {
     text-decoration: none;
     font-weight: 600;
 }
-
-@media (max-width: 900px) {
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .addon-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .button {
-        flex-direction: column;
-    }
-}

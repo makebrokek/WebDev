@@ -9,6 +9,7 @@ export class ProductService {
     { id: 2, name: 'Laptops' },
     { id: 3, name: 'Headphones' },
     { id: 4, name: 'Tablets' },
+    { id: 5, name: 'Camera' }
   ];
 
   private products: Product[] = [
@@ -338,6 +339,22 @@ export class ProductService {
       link: 'https://kaspi.kz/shop/p/xiaomi-redmi-pad-2-4g-11-djuim-8-gb-256-gb-seryi-140640417/',
       likes: 0,
       categoryId: 4,
+    },
+    {
+      id: 25,
+      name: 'Canon r65 mark ii',
+      description: 'Camera from Kaspi link. Replace details if needed.',
+      price: 0,
+      rating: 0,
+      image: 'assets/images/placeholder-camera.jpg',
+      images: [
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+        'assets/images/placeholder-tablet.jpg',
+      ],
+      link: 'https://kaspi.kz/shop/p/xiaomi-redmi-pad-2-4g-11-djuim-8-gb-256-gb-seryi-140640417/',
+      likes: 0,
+      categoryId: 5,
     },
   ];
 
